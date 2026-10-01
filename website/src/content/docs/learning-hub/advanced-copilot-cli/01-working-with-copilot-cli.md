@@ -3,7 +3,7 @@ title: '01 · Working with Copilot CLI'
 description: 'Understand the agent model, how the Copilot CLI harness works under the hood, and the everyday mechanics of models and permissions.'
 authors:
   - GitHub Copilot Learning Hub Team
-lastUpdated: 2026-08-26
+lastUpdated: 2026-10-01
 ---
 
 # Module 1 — Working with Copilot CLI
@@ -203,6 +203,9 @@ As you likely expected, there's quite a bit going on behind the scenes with Copi
     Because you are now requesting Copilot make changes to your repository in the form of creating issues, it now asks for permissions. Also note the heading for the dialog, which says **Permission request (2 remaining)**.
 
     Selecting **Yes** will allow for the first call only, and the next two will require separate approvals. **Yes, and don't ask again for `gh issue` in this repo (*path*)** will allow Copilot CLI to always call the `gh issue` CLI tool for this repository.
+
+> [!NOTE]
+> "Don't ask again" choices are saved per folder in `~/.copilot/permissions-config.json`, so they carry across sessions in that repository. You can also pre-approve tools when you launch with `--allow-tool` — for example, `copilot --allow-tool write --allow-tool 'shell(git:*)'` — which skips the prompt for exactly those tools while still asking about anything else. The rest of this course launches Copilot with `--yolo`, the blanket version of the same idea, so later modules don't stop for these prompts on routine work.
 
 > [!IMPORTANT]
 > Ensure you always consider the implications of granting Copilot or any AI tool permissions to perform actions on your behalf.
